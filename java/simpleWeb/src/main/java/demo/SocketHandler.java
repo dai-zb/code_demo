@@ -14,7 +14,7 @@ import java.net.Socket;
 public class SocketHandler implements Runnable {
     final static String CRLF = "\r\n";   // 1
 
-    private Socket clientSocket;
+    private final Socket clientSocket;
 
     public SocketHandler(Socket clientSocket) {
         this.clientSocket = clientSocket;
@@ -35,12 +35,12 @@ public class SocketHandler implements Runnable {
         );
 
         // 读取请求体
-        String requestHeader = "";
+        StringBuilder requestHeader = new StringBuilder();
         String s;
         while ((s = in.readLine()) != null) {
             // 2 很重要，默认情况下in.readLine的结果中`\r\n`被去掉了
             s += CRLF;
-            requestHeader = requestHeader + s;
+            requestHeader.append(s);
             // 请求头的分界
             if (s.equals(CRLF)) {
                 break;
