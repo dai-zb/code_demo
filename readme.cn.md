@@ -11,6 +11,8 @@
 - https://juejin.cn/post/7236184868480647205
 - https://www.toutiao.com/article/7236234106474922533/
 
+[清除7天之前的文件和目录](python/exp_7_days/rm.py)
+
 ## java
 
 [通过socket实现的简单http server(基于maven构建的工程)](java/simpleWeb/)
