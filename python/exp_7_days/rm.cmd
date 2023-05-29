@@ -1,0 +1,2 @@
+python rm.py
+pause
