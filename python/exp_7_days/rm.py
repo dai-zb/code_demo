@@ -22,7 +22,8 @@ def remove_old_files_and_directories():
             # 检查文件的时间戳是否早于阈值
             if file_timestamp < threshold_time:
                 print("Removing file:", entry_path)
-                os.remove(entry_path)
+                if not entry_path.startswith("rm."):  # 防止移除脚本文件本身
+                    os.remove(entry_path)
         
         # 检查是否为目录
         elif os.path.isdir(entry_path):
